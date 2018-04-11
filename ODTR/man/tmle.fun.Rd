@@ -2,8 +2,7 @@
 % Please edit documentation in R/tmle.fun.R
 \name{tmle.fun}
 \alias{tmle.fun}
-\title{Computes TMLE estimate of mean under decision rule
-Helps odtr to design optimal treatment rule and compute mean outcome}
+\title{Computes TMLE estimate of mean under decision rule}
 \usage{
 tmle.fun(A, Y, d, Qd, gAW, family)
 }
@@ -22,6 +21,5 @@ tmle.fun(A, Y, d, Qd, gAW, family)
 options: gaussian or binomial}
 }
 \description{
-Computes TMLE estimate of mean under decision rule
 Helps odtr to design optimal treatment rule and compute mean outcome
 }

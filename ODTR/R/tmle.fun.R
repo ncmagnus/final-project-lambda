@@ -1,4 +1,5 @@
 #' Computes TMLE estimate of mean under decision rule
+#'
 #' Helps odtr to design optimal treatment rule and compute mean outcome
 #' @param A a binary vector indicating observed treatment
 #' @param Y vector for outcome

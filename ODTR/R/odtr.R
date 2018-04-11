@@ -1,4 +1,5 @@
-#' Compute Optimal Treatment rule
+#' Compute Optimal Treatment Rule
+#'
 #' Designs optimal treatment rule and computes mean outcome
 #' under this optimal rule
 #' @param W a dataframe of covariates

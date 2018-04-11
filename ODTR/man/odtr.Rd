@@ -2,9 +2,7 @@
 % Please edit documentation in R/odtr.R
 \name{odtr}
 \alias{odtr}
-\title{Compute Optimal Treatment rule
-Designs optimal treatment rule and computes mean outcome
-under this optimal rule}
+\title{Compute Optimal Treatment Rule}
 \usage{
 odtr(W, W_for_g, A, a, Y, V, QAW.SL.library, QAV.SL.library,
 boundsY = c(0,1), risk.type="empirical", grid.size = 100, kappa = NULL)
@@ -39,7 +37,6 @@ default 100}
 \item{kappa}{(optional) minimum proportion of individuals who can receive treatment (A=1)}
 }
 \description{
-Compute Optimal Treatment rule
 Designs optimal treatment rule and computes mean outcome
 under this optimal rule
 }
