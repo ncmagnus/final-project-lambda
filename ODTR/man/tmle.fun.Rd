@@ -2,7 +2,7 @@
 % Please edit documentation in R/tmle.fun.R
 \name{tmle.fun}
 \alias{tmle.fun}
-\title{Computes TMLE estimate of mean under decision rule}
+\title{Computes TMLE Estimate of Mean Under Decision Rule}
 \usage{
 tmle.fun(A, Y, d, Qd, gAW, family)
 }
