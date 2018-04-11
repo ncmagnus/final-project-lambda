@@ -20,7 +20,7 @@
 #' @param kappa (optional) minimum proportion of individuals who can receive treatment (A=1)
 #' @importFrom SuperLearner SuperLearner
 #' @importFrom hitandrun simplex.sample
-#' @importFrom stats predict glm
+#' @importFrom stats predict glm qnorm
 #' @usage
 #' odtr(W, W_for_g, A, a, Y, V, QAW.SL.library, QAV.SL.library,
 #' boundsY = c(0,1), risk.type="empirical", grid.size = 100, kappa = NULL)

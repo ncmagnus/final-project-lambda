@@ -2,6 +2,7 @@
 
 export(SL.blip)
 export(SL.correct)
+export(dopt.fun)
 export(odtr)
 export(tmle.fun)
 importFrom(SuperLearner,SuperLearner)

@@ -1,31 +1,9 @@
-#' Additional Functions
+#' Outputs Optimal d for tmle.fun
 #'
 #' Helps odtr to design optimal treatment rule and compute mean outcome
-#' @importFrom stats predict glm var qnorm qlogis
-#' @importFrom SuperLearner SuperLearner
-#' @importFrom hitandrun simplex.sample
+#' @param blip output from SL.blip
+#' @param kappa optional numeric indicating proportion of people who can receive treatment
 #' @export
-
-
-
-# SL.correct
-# correctly specified QAW regression for simulations (DGP 2 and 3)
-SL.correct = function (Y, X, newX, family, obsWeights, model = TRUE, ...) {
-  if (is.matrix(X)) {
-    X = as.data.frame(X)
-  }
-  fit.glm <- glm(Y ~ A + W1 + A:W2 + A:W1:W2, data = X, family = family, weights = obsWeights,
-                 model = model)
-  if (is.matrix(newX)) {
-    newX = as.data.frame(newX)
-  }
-  pred <- predict(fit.glm, newdata = newX, type = "response")
-  fit <- list(object = fit.glm)
-  class(fit) <- "SL.glm"
-  out <- list(pred = pred, fit = fit)
-  return(out)
-}
-
 
 # dopt.fun
 # function that takes as input blip and kappa
@@ -48,5 +26,3 @@ dopt.fun = function(blip, kappa){
   }
   return(dopt)
 }
-
-
