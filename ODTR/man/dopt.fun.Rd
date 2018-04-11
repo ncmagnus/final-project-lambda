@@ -12,5 +12,6 @@ dopt.fun(blip, kappa)
 \item{kappa}{optional numeric indicating proportion of people who can receive treatment}
 }
 \description{
-Helps odtr to design optimal treatment rule and compute mean outcome
+Computes optimal treatment based on blip function. Allows for constraints on
+proportion of individuals who can receive treatment
 }

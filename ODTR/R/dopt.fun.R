@@ -1,6 +1,7 @@
 #' Outputs Optimal d for tmle.fun
 #'
-#' Helps odtr to design optimal treatment rule and compute mean outcome
+#' Computes optimal treatment based on blip function. Allows for constraints on
+#' proportion of individuals who can receive treatment
 #' @param blip predicted blip values from SL.blip
 #' @param kappa optional numeric indicating proportion of people who can receive treatment
 #' @export
