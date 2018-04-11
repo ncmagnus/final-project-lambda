@@ -2,7 +2,7 @@
 % Please edit documentation in R/odtr.R
 \name{odtr}
 \alias{odtr}
-\title{Compute Optimal Treatment Rule}
+\title{Compute Optimal Dynamic Treatment Rule}
 \usage{
 odtr(W, W_for_g, A, a, Y, V, QAW.SL.library, QAV.SL.library,
 boundsY = c(0,1), risk.type="empirical", grid.size = 100, kappa = NULL)

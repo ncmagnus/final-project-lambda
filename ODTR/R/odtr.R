@@ -1,4 +1,4 @@
-#' Compute Optimal Treatment Rule
+#' Compute Optimal Dynamic Treatment Rule
 #'
 #' Designs optimal treatment rule and computes mean outcome
 #' under this optimal rule

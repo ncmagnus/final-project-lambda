@@ -1,5 +1,23 @@
+#' Compute Simple Dynamic Treatment Rule
+#'
+#' Designs simple treatment rule and computes mean outcome
+#' under this simple rule
+#' @param W a dataframe of covariates
+#' @param W_for_g a subset of W used to estimate the treatment mechanism
+#' @param A a binary vector indicating observed treatment
+#' @param a treatment for comparison with A
+#' @param Y vector for outcome
+#' @param rule vector of treatment (A) under dynamic treatment rule
+#' @param QAW.SL.library Super learner library for estimating outcome regression
+#' @importFrom SuperLearner SuperLearner
+#' @importFrom stats predict glm qnorm
+#' @usage
+#' sodtr(W, W_for_g, A, a, Y, rule, QAW.SL.library)
+#' @export
+#
+
 # function that computes gcomp, IPTW, TMLE for simple dynamic txt regime
-simple = function(W, W_for_g, A, a, Y, rule, QAW.SL.library){
+sodtr = function(W, W_for_g, A, a, Y, rule, QAW.SL.library){
 
   n = length(A)
   family = ifelse(length(unique(Y))>2, "gaussian", "binomial")
