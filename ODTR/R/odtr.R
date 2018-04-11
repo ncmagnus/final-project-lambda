@@ -55,7 +55,6 @@ odtr = function(W, W_for_g, A, a, Y, V, QAW.SL.library, QAV.SL.library, boundsY 
   # estimate SOC, ie E[Y|A = a, W]
   QaW = predict(QAW.reg, newdata = data.frame(W, A = a), type = "response")$pred
 
-
   ### TMLE ###
   tmle_objects.dopt = tmle.fun(A = A, d = dopt, Y = Y, Qd = Qdopt, gAW = gAW, family = family)
   tmle_objects.a = tmle.fun(A = A, d = a, Y = Y, Qd = QaW, gAW = gAW, family = family)
@@ -83,7 +82,6 @@ odtr = function(W, W_for_g, A, a, Y, V, QAW.SL.library, QAV.SL.library, boundsY 
   Psi_CV.TMLE = mean(sapply(1:10, function(i) CV.TMLE.est[[i]]$Psi_TMLE.test))
   var_CV.TMLE = mean(sapply(1:10, function(i) CV.TMLE.est[[i]]$var_IC.test))/n
   CI_CV.TMLE = Psi_CV.TMLE + c(-1,1)*qnorm(0.975)*sqrt(var_CV.TMLE)
-
   return(c(TMLE_ODTR = Psi_TMLE,
            CV.TMLE_ODTR = Psi_CV.TMLE,
            CI_TMLE_ODTR = CI_TMLE,
