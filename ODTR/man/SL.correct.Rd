@@ -2,7 +2,7 @@
 % Please edit documentation in R/SL.correct.R
 \name{SL.correct}
 \alias{SL.correct}
-\title{Checks for Correctly Specified QAW Regression}
+\title{Parametric QAW Regression}
 \usage{
 SL.correct(Y, X, newX, family, obsWeights, model = TRUE, ...)
 }
@@ -22,5 +22,5 @@ SL.correct(Y, X, newX, family, obsWeights, model = TRUE, ...)
 \item{...}{additional arguments to be passed to glm}
 }
 \description{
-Helps odtr to design optimal treatment rule and compute mean outcome
+Helpful for simulations
 }

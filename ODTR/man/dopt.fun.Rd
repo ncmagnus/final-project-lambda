@@ -7,7 +7,7 @@
 dopt.fun(blip, kappa)
 }
 \arguments{
-\item{blip}{output from SL.blip}
+\item{blip}{predicted blip values from SL.blip}
 
 \item{kappa}{optional numeric indicating proportion of people who can receive treatment}
 }

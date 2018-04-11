@@ -3,9 +3,9 @@
 #' Helps odtr to design optimal treatment rule and compute mean outcome
 #' @param A a binary vector indicating observed treatment
 #' @param Y vector for outcome
-#' @param d output from dopt.fun
-#' @param Qd Predicted outcome under optimal treatment
-#' @param gAW estimate for probability of observed exposure
+#' @param d rule or intervention for A
+#' @param Qd predicted values for TMLE updating
+#' @param gAW estimated treatment mechanism
 #' @param family character indicating family for glm
 #' options: gaussian or binomial
 #' @importFrom stats predict glm var qnorm qlogis
@@ -16,6 +16,7 @@
 # function that takes as input A, Y, decision rule, mean under decision rule, gAW, and family
 # outputs TMLE estimate of mean under decision rule
 tmle.fun = function(A, Y, d, Qd, gAW, family){
+  #clever covariate for tmle
   H = (A==d)/gAW
   if(family == "binomial"){
     logit.Qd = qlogis(Qd)

@@ -1,6 +1,6 @@
-#' Checks for Correctly Specified QAW Regression
+#' Parametric QAW Regression
 #'
-#' Helps odtr to design optimal treatment rule and compute mean outcome
+#' Helpful for simulations
 #' @param Y vector for outcome varible
 #' @param X dataframe for response variables, could be a matrix
 #' @param newX dataframe with new response variables for prediction

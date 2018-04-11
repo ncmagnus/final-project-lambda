@@ -15,9 +15,9 @@ SL.blip(V, W, A, Y, QAW.reg, gAW, QAV.SL.library, risk.type, family, grid.size)
 
 \item{Y}{vector for outcome}
 
-\item{QAW.reg}{Output from SuperLearner E{Y|A,W}}
+\item{QAW.reg}{estimated outcome regression E{Y|A,W}}
 
-\item{gAW}{estimate for probability of observed exposure}
+\item{gAW}{estimated treatment mechanism}
 
 \item{QAV.SL.library}{Super learner library for estimating blip function}
 
@@ -33,5 +33,5 @@ for weights assigned to algorithms used to estimate optimal treatment
 default 100}
 }
 \description{
-Helps odtr to design optimal treatment rule and compute mean outcome
+SuperLearner for estimating the optimal rule
 }

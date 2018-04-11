@@ -1,12 +1,12 @@
 #' Computes Blips and Updates SuperLearner and Optimal Rule
 #'
-#' Helps odtr to design optimal treatment rule and compute mean outcome
+#' SuperLearner for estimating the optimal rule
 #' @param V subset of W used to construct optimal rule
 #' @param W a dataframe of covariates
 #' @param A a binary vector indicating observed treatment
 #' @param Y vector for outcome
-#' @param QAW.reg Output from SuperLearner E{Y|A,W}
-#' @param gAW estimate for probability of observed exposure
+#' @param QAW.reg estimated outcome regression E{Y|A,W}
+#' @param gAW estimated treatment mechanism
 #' @param QAV.SL.library Super learner library for estimating blip function
 #' @param risk.type character of length 1 indicating
 #'  risk to be minimized when estimating optimal treatment can be: empirical, TMLE, CV empirical, CV TMLE

@@ -11,11 +11,11 @@ tmle.fun(A, Y, d, Qd, gAW, family)
 
 \item{Y}{vector for outcome}
 
-\item{d}{output from dopt.fun}
+\item{d}{rule or intervention for A}
 
-\item{Qd}{Predicted outcome under optimal treatment}
+\item{Qd}{predicted values for TMLE updating}
 
-\item{gAW}{estimate for probability of observed exposure}
+\item{gAW}{estimated treatment mechanism}
 
 \item{family}{character indicating family for glm
 options: gaussian or binomial}
