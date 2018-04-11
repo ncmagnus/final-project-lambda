@@ -5,11 +5,11 @@
 #' @param W_for_g a subset of W used to estimate the treatment mechanism
 #' @param A a binary vector indicating observed treatment
 #' @param a treatment for comparison with A
-#' @param Y vector fo outcome
+#' @param Y vector for outcome
 #' @param V subset of W used to construct optimal rule
 #' @param QAW.SL.library Super learner library for estimating outcome regression
 #' @param QAV.SL.library Super learner library for estimating blip function
-#' @param boundsY define later
+#' @param boundsY bounds for outcome variable Y default: c(0,1)
 #' @param risk.type character of length 1 indicating
 #'  risk to be minimized when estimating optimal treatment can be: empirical, TMLE, CV empirical, CV TMLE
 #'  default empirical
@@ -21,7 +21,8 @@
 #' @importFrom hitandrun simplex.sample
 #' @importFrom stats predict glm
 #' @usage
-#' odtr(W, W_for_g, A, a, Y, V, QAW.SL.library, QAV.SL.library, boundsY = c(0,1), risk.type="empirical", grid.size = 100, kappa = NULL)
+#' odtr(W, W_for_g, A, a, Y, V, QAW.SL.library, QAV.SL.library,
+#' boundsY = c(0,1), risk.type="empirical", grid.size = 100, kappa = NULL)
 #' @export
 #
 

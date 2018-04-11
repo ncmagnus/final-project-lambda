@@ -6,7 +6,8 @@
 Designs optimal treatment rule and computes mean outcome
 under this optimal rule}
 \usage{
-odtr(W, W_for_g, A, a, Y, V, QAW.SL.library, QAV.SL.library, boundsY = c(0,1), risk.type="empirical", grid.size = 100, kappa = NULL)
+odtr(W, W_for_g, A, a, Y, V, QAW.SL.library, QAV.SL.library,
+boundsY = c(0,1), risk.type="empirical", grid.size = 100, kappa = NULL)
 }
 \arguments{
 \item{W}{a dataframe of covariates}
@@ -17,7 +18,7 @@ odtr(W, W_for_g, A, a, Y, V, QAW.SL.library, QAV.SL.library, boundsY = c(0,1), r
 
 \item{a}{treatment for comparison with A}
 
-\item{Y}{vector fo outcome}
+\item{Y}{vector for outcome}
 
 \item{V}{subset of W used to construct optimal rule}
 
@@ -25,7 +26,7 @@ odtr(W, W_for_g, A, a, Y, V, QAW.SL.library, QAV.SL.library, boundsY = c(0,1), r
 
 \item{QAV.SL.library}{Super learner library for estimating blip function}
 
-\item{boundsY}{define later}
+\item{boundsY}{bounds for outcome variable Y default: c(0,1)}
 
 \item{risk.type}{character of length 1 indicating
 risk to be minimized when estimating optimal treatment can be: empirical, TMLE, CV empirical, CV TMLE
