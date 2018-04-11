@@ -1,0 +1,22 @@
+{
+    "collab_server" : "",
+    "contents" : "",
+    "created" : 1523392061563.000,
+    "dirty" : false,
+    "encoding" : "UTF-8",
+    "folds" : "",
+    "hash" : "0",
+    "id" : "D59B45DD",
+    "lastKnownWriteTime" : 1523393846,
+    "last_content_update" : 1523393846029,
+    "path" : "~/Desktop/ODTR/R/odtr.R",
+    "project_path" : "R/odtr.R",
+    "properties" : {
+        "cursorPosition" : "11,30",
+        "scrollLine" : "3"
+    },
+    "relative_order" : 2,
+    "source_on_save" : false,
+    "source_window" : "",
+    "type" : "r_source"
+}

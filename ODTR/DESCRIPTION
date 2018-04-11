@@ -1,0 +1,14 @@
+Package: ODTR
+Type: Package
+Title: Optimal Dynamic Treatment Rule
+Version: 0.1.0
+Author: Lina Montoya and Nina Magnuson 
+Maintainer: Lina Montoya <lmontoya@berkeley.edu> Nina Magnuson <ncmagnus@berkeley.edu>
+Description: Computes the optimal dynamic treatment rule and the mean
+    outcome under the optimal rule. 
+Imports: SuperLearner, hitandrun
+Depends: R (>= 3.4.1)
+License: GPL-3
+Encoding: UTF-8
+LazyData: true
+RoxygenNote: 6.0.1
