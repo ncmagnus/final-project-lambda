@@ -2,6 +2,7 @@
 
 export(SL.blip)
 export(SL.correct)
+export(data.simulation)
 export(dopt.fun)
 export(odtr)
 export(sodtr)
