@@ -28,7 +28,7 @@ sodtr = function(W, W_for_g, A, a, Y, rule, QAW.SL.library){
   if (!is.data.frame(W_for_g) & !is.vector(W_for_g)) stop("W_for_g should be a dataframe or a vector")
 
   # check A
-  if (!is.vector(A) | length(unique(A) > 2)) stop("A should be a binary vector")
+  if (!is.vector(A) | length(unique(A)) > 2) stop("A should be a binary vector")
 
   # check a
   if (!is.vector(a)) stop("a should be a vector for comparison with A")
