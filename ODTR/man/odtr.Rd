@@ -34,7 +34,7 @@ default empirical}
 for weights assigned to algorithms used to estimate optimal treatment
 default 100}
 
-\item{kappa}{(optional) minimum proportion of individuals who can receive treatment (A=1)}
+\item{kappa}{(optional) numeric indicating minimum proportion of individuals who can receive treatment (A=1)}
 }
 \description{
 Designs optimal treatment rule and computes mean outcome
