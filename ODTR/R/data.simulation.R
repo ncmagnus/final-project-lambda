@@ -1,9 +1,10 @@
-#' Simulates data to use with odtr or sodtr
+#' Simulates Data for odtr or sodtr
 #'
 #' simulate data involving treatment, covariates and outcome for optimal or
 #' simple dynamic treatment
 #' @param n size of simulated data
 #' @param kappa optional numeric indicating proportion of people who can receive treatment
+#' @importFrom stats rnorm rbinom plogis
 #' @export
 data.simulation = function(n, dA = NULL, a = NULL, kappa = NULL){
 
