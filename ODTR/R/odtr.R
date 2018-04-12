@@ -32,34 +32,33 @@
 # function that computes gcomp, IPTW, TMLE for optimal dynamic txt regime
 odtr = function(W, W_for_g, A, a, Y, V, QAW.SL.library, QAV.SL.library, boundsY = c(0,1), risk.type="empirical", grid.size = 100, kappa = NULL){
 
-
   #sanity checks
   # sanity checks
   # check W
   if (!is.data.frame(W)) stop("W should be a dataframe")
 
   # check W_for_g
-  if (!is.data.frame(W_for_g) | !is.vector(W_for_g)) stop("W_for_g should be a dataframe or a vector")
+  if (!is.data.frame(W_for_g) & !is.vector(W_for_g)) stop("W_for_g should be a dataframe or a vector")
 
   # check A
-  if (!is.vector(A) | length(unique(A) > 2)) stop("A should be a binary vector")
+  if (!is.vector(A) & length(unique(A) > 2)) stop("A should be a binary vector")
 
   # check a
   if (!is.vector(a)) stop("a should be a vector for comparison with A")
 
-   # check Y
+  # check Y
   if (!(is.vector(Y)) | !is.numeric(Y)) stop("Y should be a numeric vector")
 
   # check V
   if (!is.data.frame(V)) stop("V should be a dataframe, a subset of W")
 
   # check QAW.SL.library
-  if (!is.character(QAW.SL.library) | !is.list(QAW.SL.library)) stop("QAW.SL.library should be a character vector or a list
-                                          containing character vectors")
+  if (!is.character(QAW.SL.library) & !is.list(QAW.SL.library)) stop("QAW.SL.library should be a character vector or a list
+                                                                     containing character vectors")
 
-   # check QAV.SL.library
-  if (!is.character(QAV.SL.library) | !is.list(QAV.SL.library)) stop("QAV.SL.library should be a character vector or a list
-                                          containing character vectors")
+  # check QAV.SL.library
+  if (!is.character(QAV.SL.library) & !is.list(QAV.SL.library)) stop("QAV.SL.library should be a character vector or a list
+                                                                     containing character vectors")
 
   # check risk.type
   if (!is.character(risk.type)) stop("risk.type should be a character; see help file" )
