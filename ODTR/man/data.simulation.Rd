@@ -9,6 +9,12 @@ data.simulation(n, dA = NULL, a = NULL, kappa = NULL)
 \arguments{
 \item{n}{size of simulated data}
 
+\item{dA}{optional character indicating how to construct rule:
+simple dynamic, ODTR or ODTR-RC
+if ODTR-RC you must include kappa for constraint}
+
+\item{a}{optional treatment for comparison with A}
+
 \item{kappa}{optional numeric indicating proportion of people who can receive treatment}
 }
 \description{

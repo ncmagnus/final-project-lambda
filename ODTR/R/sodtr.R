@@ -41,7 +41,7 @@ sodtr = function(W, W_for_g, A, a, Y, rule, QAW.SL.library){
 
 
   # check QAV.SL.library
-  if (!is.character(QAV.SL.library) & !is.list(QAV.SL.library)) stop("QAV.SL.library should be a character vector or a list
+  if (!is.character(QAW.SL.library) & !is.list(QAW.SL.library)) stop("QAW.SL.library should be a character vector or a list
                                                                      containing character vectors")
 
 

@@ -3,6 +3,10 @@
 #' simulate data involving treatment, covariates and outcome for optimal or
 #' simple dynamic treatment
 #' @param n size of simulated data
+#' @param dA optional character indicating how to construct rule:
+#' simple dynamic, ODTR or ODTR-RC
+#' if ODTR-RC you must include kappa for constraint
+#' @param a optional treatment for comparison with A
 #' @param kappa optional numeric indicating proportion of people who can receive treatment
 #' @importFrom stats rnorm rbinom plogis
 #' @export

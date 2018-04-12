@@ -83,6 +83,7 @@ odtr = function(W, W_for_g, A, a, Y, V, QAW.SL.library, QAV.SL.library, boundsY 
   gAW = ifelse(A == 1, g1W, 1-g1W)
 
   # get estimate of blip based on risk type (empirical, TMLE, CV TMLE, CV empirical, none)
+  if(!colnames(W_for_g) %in% colnames(V)) stop("V must contain W_for_g")
   SL.blip.fit = SL.blip(V = V, W = W, A = A, Y = Y, QAW.reg = QAW.reg, QAV.SL.library = QAV.SL.library, gAW = gAW, risk.type = risk.type, family = family, grid.size = grid.size)
   # get estimate of optimal rule based on blip estimate
   blip = SL.blip.fit$SL.predict
