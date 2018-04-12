@@ -62,13 +62,15 @@ odtr = function(W, W_for_g, A, a, Y, V, QAW.SL.library, QAV.SL.library, boundsY 
                                           containing character vectors")
 
   # check risk.type
-  if (!is.character(risk.type)) stop("risk.type should be a character: empirical, TMLE, CV empirical, or CV TMLE" )
+  if (!is.character(risk.type)) stop("risk.type should be a character; see help file" )
+  if(!risk.type %in% c("empirical","TMLE","CV empirical","CV TMLE")){stop("risk.type must be either 'empirical', 'TMLE','CV empirical', or 'CV TMLE'")}
 
   # check grid.size
   if (!is.numeric(grid.size)) stop("grid.size should be numeric")
 
   # check kappa
-  if (!is.numeric(kappa)) stop("kappa should be a numeric")
+  if (!is.null(kappa) & !is.numeric(kappa)) stop("kappa should be a numeric")
+
 
   n = length(A)
   family = ifelse(length(unique(Y))>2, "gaussian", "binomial")
