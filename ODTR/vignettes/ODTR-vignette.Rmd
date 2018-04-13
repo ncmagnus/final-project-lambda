@@ -1,6 +1,6 @@
 ---
-title: "Vignette Title"
-author: "Vignette Author"
+title: "Vignette for ODTR package"
+author: "Lina Montoya and Nina Magnuson"
 date: "`r Sys.Date()`"
 output: rmarkdown::html_vignette
 vignette: >
@@ -18,7 +18,11 @@ knitr::opts_chunk$set(
   library(hitandrun)
 )
 ```
+\section{Description}
+ODTR computes the simple or optimal dynamic treatment rule for data of the form O <- (W, A, Y). W represents covariates uneffected by treatment, A. Treatment A is a binary vector indicating whether treatment was received. Y is a vector for the outcome measured at the end of the study. This allows for analysis of treatment, i.e. how to optimize treatment design.  
 
+
+\section{Example Using Simulated Data}
 In order to illustrate the use of ODTR, first use the data.simulation function to create some data. Next we must define the relevant variables for reading into odtr and sodtr. 
 ```{r}
 set.seed(37982)
@@ -30,12 +34,19 @@ a = 0
 Y = data$Y
 rule = data$A_star
 QAW.SL.library = c("SL.glm", "SL.mean", "SL.glmnet")
+
+```
+\subsection{Finding Simple Dynamic Treatment Rule}
+Using function sodtr we will use the simulated data to compute the simple optimal treatment rule.
+```{r}
 resultssimple = sodtr(W = W, W_for_g = W, a = a, A = A, Y = Y, 
                               rule = rule, 
                               QAW.SL.library = QAW.SL.library)
 resultssimple
 resultssimple - mean(Y)
 ```
+Include explanation of results.
+\subsection{Finding Optimal Dynamic Treatment Rule}
 Next we will find the optimal dynamic treatment rule for this simulated data. 
 ```{r}
 # note V must contain W_for_g
@@ -51,4 +62,4 @@ resultsODTR = odtr(W = W, A = A, a = a, Y = Y, V = V, W_for_g = W_for_g,
                           grid.size = grid.size)
 resultsODTR
 ```
-
+Analysis of results. 

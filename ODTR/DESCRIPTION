@@ -1,6 +1,6 @@
 Package: ODTR
 Type: Package
-Title: Optimal Dynamic Treatment Rule
+Title: Optimal and Simple Dynamic Treatment Rule
 Version: 0.1.0
 Author: Lina Montoya and Nina Magnuson 
 Maintainer: Lina Montoya <lmontoya@berkeley.edu> Nina Magnuson <ncmagnus@berkeley.edu>
