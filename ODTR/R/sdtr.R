@@ -10,15 +10,20 @@
 #' @param rule vector of treatment (A) under dynamic treatment rule
 #' @param QAW.SL.library Super learner library for estimating outcome regression
 #' see SuperLearner help file for more information
+#' @param estimator.type character indicating estimator type to calculate
+#' difference in expected outcome under simple dynamic rule and for comparison group
+#' options: gcomp, IPTW, IPTW_DR, TMLE
+#' note: selecting IPTW and gcomp preclude confidence intervals
+#' default TMLE
 #' @importFrom SuperLearner SuperLearner
 #' @importFrom stats predict glm qnorm
 #' @usage
-#' sdtr(W, W_for_g, A, a, Y, rule, QAW.SL.library)
+#' sdtr(W, W_for_g, A, a, Y, rule, QAW.SL.library, estimator.type="TMLE")
 #' @export
 #
 
 # function that computes gcomp, IPTW, TMLE for simple dynamic txt regime
-sdtr = function(W, W_for_g, A, a, Y, rule, QAW.SL.library){
+sdtr = function(W, W_for_g, A, a, Y, rule, QAW.SL.library, estimator.type = "TMLE"){
 
   #sanity checks
 
@@ -45,6 +50,9 @@ sdtr = function(W, W_for_g, A, a, Y, rule, QAW.SL.library){
   if (!is.character(QAW.SL.library) & !is.list(QAW.SL.library)) stop("QAW.SL.library should be a character vector or a list
                                                                      containing character vectors")
 
+  # check estimator.type
+  if (!is.character(estimator.type)) stop("estimator.type should be a character; see help file" )
+  if(!estimator.type %in% c("gcomp","TMLE","IPTW","IPTW_DR")){stop("estimator.type must be either 'gcomp', 'TMLE','IPTW', or 'IPTW_DR'")}
 
   n = length(A)
   family = ifelse(length(unique(Y))>2, "gaussian", "binomial")
@@ -86,12 +94,22 @@ sdtr = function(W, W_for_g, A, a, Y, rule, QAW.SL.library){
   varIC_TMLE = var(tmle_objects.d$IC - tmle_objects.a$IC)/n
   CI_TMLE = Psi_TMLE + c(-1,1)*qnorm(0.975)*sqrt(varIC_TMLE)
 
-  return(c(gcomp_simple = Psi_gcomp,
-           IPTW_simple = Psi_IPTW,
-           IPTW_simple_DR = Psi_IPTW_DR,
-           TMLE_simple = Psi_TMLE,
-           CI_IPTW_simple_DR = CI_IPTW_DR,
-           CI_TMLE_simple = CI_TMLE))
+  if (estimator.type =="gcomp")
+  {output <- c(gcomp_simple = Psi_gcomp)}
+
+
+  if (estimator.type =="IPTW")
+  {output <- c(IPTW_simple = Psi_IPTW,
+               CI_TMLE_simple = CI_TMLE)}
+
+  if (estimator.type =="IPTW_DR")
+  {output <- c(IPTW_simple_DR = Psi_IPTW_DR,
+               CI_IPTW_simple_DR = CI_IPTW_DR)}
+  else
+    {output <- c(TMLE_simple = Psi_TMLE,
+                     CI_TMLE_simple = CI_TMLE)}
+
+  return(output)
 
 }
 

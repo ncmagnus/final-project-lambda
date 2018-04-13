@@ -4,7 +4,7 @@
 \alias{sdtr}
 \title{Compute Simple Dynamic Treatment Rule}
 \usage{
-sdtr(W, W_for_g, A, a, Y, rule, QAW.SL.library)
+sdtr(W, W_for_g, A, a, Y, rule, QAW.SL.library, estimator.type="TMLE")
 }
 \arguments{
 \item{W}{a dataframe of covariates}
@@ -21,6 +21,12 @@ sdtr(W, W_for_g, A, a, Y, rule, QAW.SL.library)
 
 \item{QAW.SL.library}{Super learner library for estimating outcome regression
 see SuperLearner help file for more information}
+
+\item{estimator.type}{character indicating estimator type to calculate
+difference in expected outcome under simple dynamic rule and for comparison group
+options: gcomp, IPTW, IPTW_DR, TMLE
+note: selecting IPTW and gcomp preclude confidence intervals
+default TMLE}
 }
 \description{
 Designs simple treatment rule and computes mean outcome
