@@ -26,14 +26,16 @@ ODTR computes the simple or optimal dynamic treatment rule for data of the form 
 In order to illustrate the use of ODTR, first use the data.simulation function to create some data. Next we must define the relevant variables for reading into odtr and sodtr. 
 ```{r}
 set.seed(37982)
-data <- data.simulation(n=100)
+data <- data.simulation(n=1000)
 W = data[,grep("W", names(data))]
-W_for_g = subset(W, select = c(W4))
+W_for_g = subset(W, select = c(W1, W2))
 A = data$A
 a = 0
 Y = data$Y
-rule = data$A_star
-QAW.SL.library = c("SL.glm", "SL.mean", "SL.glmnet")
+rule = ifelse(data$W2 > 0, 1, 0) #for simple dynamic treatment 
+QAW.SL.library = "SL.correct"
+
+#test the simulated data
 
 ```
 \subsection{Finding Simple Dynamic Treatment Rule}
@@ -43,18 +45,16 @@ resultssimple = sodtr(W = W, W_for_g = W, a = a, A = A, Y = Y,
                               rule = rule, 
                               QAW.SL.library = QAW.SL.library)
 resultssimple
-resultssimple - mean(Y)
 ```
 Include explanation of results.
 \subsection{Finding Optimal Dynamic Treatment Rule}
 Next we will find the optimal dynamic treatment rule for this simulated data. 
 ```{r}
 # note V must contain W_for_g
-V = subset(W, select = c(W1, W2, W4))
+V = subset(W, select = c(W1, W2))
 grid.size = 100
 risk.type = "empirical"
-QAV.SL.library = c("SL.glm", "SL.mean", "SL.glmnet","SL.xgboost")
-QAW.SL.library = c("SL.glm", "SL.mean", "SL.glmnet")
+QAV.SL.library = c("SL.glm", "SL.glmnet", "SL.mean")
 resultsODTR = odtr(W = W, A = A, a = a, Y = Y, V = V, W_for_g = W_for_g,
                           QAW.SL.library = QAW.SL.library, 
                           QAV.SL.library = QAV.SL.library,
