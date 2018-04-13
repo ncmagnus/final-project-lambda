@@ -18,12 +18,15 @@ knitr::opts_chunk$set(
   library(hitandrun)
 )
 ```
-\section{Description}
-ODTR computes the simple or optimal dynamic treatment rule for data of the form O <- (W, A, Y). W represents covariates uneffected by treatment, A. Treatment A is a binary vector indicating whether treatment was received. Y is a vector for the outcome measured at the end of the study. This allows for analysis of treatment, i.e. how to optimize treatment design.  
+
+## Description
+DTR computes the simple or optimal dynamic treatment rule for data of the form O = (W, A, Y). W represents pretreatment covariates. A is a binary vector indicating whether treatment was received. Y is a vector for the outcome. Using DTR, we can compute the difference in expected outcome under a dynamic treatment rule (simple or optimal) versus expected outcome under a comparison group. This allows us to analyze the efficacy of different treatment regimes on the outcome. 
 
 
-\section{Example Using Simulated Data}
-In order to illustrate the use of ODTR, first use the data.simulation function to create some data. Next we must define the relevant variables for reading into odtr and sodtr. 
+## Example Using Simulated Data
+
+In order to illustrate the use of DTR, first use the data.simulation function to generate some data of the correct format. Next we must define the relevant variables from this data for reading into odtr and sodtr. The rule, which is an argument for sodtr, can be generated using one of the covariates, as shown below. This rule represents a simple treatment regime, for instance administering treatment based on individual preference. We advise assigning QAW.SL.library as shown below to ensure the correct form, but this is customizable, read sdtr help file on how to make your own.
+
 ```{r}
 set.seed(37982)
 data <- data.simulation(n=1000)
@@ -34,21 +37,26 @@ a = 0
 Y = data$Y
 rule = ifelse(data$W2 > 0, 1, 0) #for simple dynamic treatment 
 QAW.SL.library = "SL.correct"
-
-#test the simulated data
-
+head(data)
 ```
-\subsection{Finding Simple Dynamic Treatment Rule}
-Using function sodtr we will use the simulated data to compute the simple optimal treatment rule.
+The data generated contains columns for covariates W, treatment A, and outcome Y as described above. 
+
+## Finding Simple Dynamic Treatment Rule
+
+Sdtr will analyze the difference between the above mentioned, simple rule, and the comparison group.
+
 ```{r}
-resultssimple = sodtr(W = W, W_for_g = W, a = a, A = A, Y = Y, 
+resultssimple = sdtr(W = W, W_for_g = W, a = a, A = A, Y = Y, 
                               rule = rule, 
                               QAW.SL.library = QAW.SL.library)
 resultssimple
 ```
-Include explanation of results.
-\subsection{Finding Optimal Dynamic Treatment Rule}
+The outputted results from sdtr include gcomp_simple, this is the difference in expected outcome under the simple rule and expected outcome under the comparison group. IPTW_simple gives the same information as gcomp_simple, it is simply transformed. Additionally, IPTW_simple_DR is double robust, 
+
+## Finding Optimal Dynamic Treatment Rule
+
 Next we will find the optimal dynamic treatment rule for this simulated data. 
+
 ```{r}
 # note V must contain W_for_g
 V = subset(W, select = c(W1, W2))

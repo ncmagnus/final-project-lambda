@@ -9,15 +9,16 @@
 #' @param Y vector for outcome
 #' @param rule vector of treatment (A) under dynamic treatment rule
 #' @param QAW.SL.library Super learner library for estimating outcome regression
+#' see SuperLearner help file for more information
 #' @importFrom SuperLearner SuperLearner
 #' @importFrom stats predict glm qnorm
 #' @usage
-#' sodtr(W, W_for_g, A, a, Y, rule, QAW.SL.library)
+#' sdtr(W, W_for_g, A, a, Y, rule, QAW.SL.library)
 #' @export
 #
 
 # function that computes gcomp, IPTW, TMLE for simple dynamic txt regime
-sodtr = function(W, W_for_g, A, a, Y, rule, QAW.SL.library){
+sdtr = function(W, W_for_g, A, a, Y, rule, QAW.SL.library){
 
   #sanity checks
 
