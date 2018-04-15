@@ -51,7 +51,7 @@ resultssimple = sdtr(W = W, W_for_g = W, a = a, A = A, Y = Y,
                               QAW.SL.library = QAW.SL.library)
 resultssimple
 ```
-The outputted results from sdtr include TMLE_simple, the difference between targeted maximum likelihood estimator under simple dyanmic treatment regime and expected outcome for the comparison group. Additionally, the 95% lower and upper bound for this estiamtor are outputted. This value indicates that the simple dynamic treatment rule results in higher expected outcome than the comparison group, an argument in favor of the simple rule. 
+The outputted results from sdtr include TMLE_simple, the difference between targeted maximum likelihood estimator under simple dyanmic treatment regime and expected outcome for the comparison group. Additionally, the 95% lower and upper bound for this estimator are outputted. This value indicates that the simple dynamic treatment rule results in higher expected outcome than the comparison group, an argument in favor of the simple rule. 
 
 ## Finding Optimal Dynamic Treatment Rule
 
