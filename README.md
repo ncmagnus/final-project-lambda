@@ -1,2 +1,5 @@
-# final-project-lambda
-final-project-lambda created by GitHub Classroom
+# STA 290 UC Berkeley Final Project
+Authors: Lina Montoya and Nina Magnuson
+
+Package: DTR
+
