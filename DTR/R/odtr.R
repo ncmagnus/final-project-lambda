@@ -13,7 +13,7 @@
 #' @param boundsY bounds for outcome variable Y default: c(0,1)
 #' @param risk.type character of length 1 indicating
 #'  risk to be minimized when estimating optimal treatment can be: empirical, TMLE, CV empirical, CV TMLE
-#'  default empirical
+#'  default CV TMLE
 #' @param grid.size numeric of length 1 indicating size of grid on which to do grid search
 #' for weights assigned to algorithms used to estimate optimal treatment
 #' default 100
@@ -23,14 +23,14 @@
 #' @importFrom stats predict glm qnorm
 #' @usage
 #' odtr(W, W_for_g, A, a, Y, V, QAW.SL.library, QAV.SL.library,
-#' boundsY = c(0,1), risk.type="empirical", grid.size = 100, kappa = NULL)
+#' boundsY = c(0,1), risk.type="CV TMLE", grid.size = 100, kappa = NULL)
 #' @export
 #
 
 
 
 # function that computes gcomp, IPTW, TMLE for optimal dynamic txt regime
-odtr = function(W, W_for_g, A, a, Y, V, QAW.SL.library, QAV.SL.library, boundsY = c(0,1), risk.type="empirical", grid.size = 100, kappa = NULL){
+odtr = function(W, W_for_g, A, a, Y, V, QAW.SL.library, QAV.SL.library, boundsY = c(0,1), risk.type="CV TMLE", grid.size = 100, kappa = NULL){
 
   #sanity checks
   # sanity checks

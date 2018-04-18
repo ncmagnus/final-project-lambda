@@ -1,4 +1,4 @@
-Package: ODTR
+Package: DTR
 Type: Package
 Title: Optimal and Simple Dynamic Treatment Rule
 Version: 0.1.0

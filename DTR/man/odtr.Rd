@@ -5,7 +5,7 @@
 \title{Compute Optimal Dynamic Treatment Rule}
 \usage{
 odtr(W, W_for_g, A, a, Y, V, QAW.SL.library, QAV.SL.library,
-boundsY = c(0,1), risk.type="empirical", grid.size = 100, kappa = NULL)
+boundsY = c(0,1), risk.type="CV TMLE", grid.size = 100, kappa = NULL)
 }
 \arguments{
 \item{W}{a dataframe of covariates}
@@ -28,7 +28,7 @@ boundsY = c(0,1), risk.type="empirical", grid.size = 100, kappa = NULL)
 
 \item{risk.type}{character of length 1 indicating
 risk to be minimized when estimating optimal treatment can be: empirical, TMLE, CV empirical, CV TMLE
-default empirical}
+default CV TMLE}
 
 \item{grid.size}{numeric of length 1 indicating size of grid on which to do grid search
 for weights assigned to algorithms used to estimate optimal treatment
